@@ -55,20 +55,31 @@ class _StudentFormDialogState extends State<StudentFormDialog> {
           key: _formKey,
           child: Column(
             mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const Text(
+                'Student Name',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+              ),
+              const SizedBox(height: 6),
               TextFormField(
                 controller: _nameController,
                 decoration: const InputDecoration(
-                  labelText: 'Name',
+                  hintText: 'Enter full name',
                   border: OutlineInputBorder(),
                 ),
                 validator: (v) => _required(v, 'Name'),
               ),
               const SizedBox(height: 16),
+              const Text(
+                'Course',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+              ),
+              const SizedBox(height: 6),
               TextFormField(
                 controller: _courseController,
                 decoration: const InputDecoration(
-                  labelText: 'Course',
+                  hintText: 'Enter course (e.g., BSIT)',
                   border: OutlineInputBorder(),
                 ),
                 validator: (v) => _required(v, 'Course'),
@@ -82,7 +93,14 @@ class _StudentFormDialogState extends State<StudentFormDialog> {
           onPressed: () => Navigator.of(context).pop(),
           child: const Text('Cancel'),
         ),
-        FilledButton(onPressed: _save, child: const Text('Save')),
+        FilledButton(
+          onPressed: _save,
+          style: FilledButton.styleFrom(
+            backgroundColor: Colors.blue.shade400,
+            foregroundColor: Colors.white,
+          ),
+          child: const Text('Save'),
+        ),
       ],
     );
   }

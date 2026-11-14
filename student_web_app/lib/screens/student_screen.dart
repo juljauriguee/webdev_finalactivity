@@ -78,6 +78,10 @@ class _StudentScreenState extends State<StudentScreen> {
           ),
           FilledButton(
             onPressed: () => Navigator.pop(ctx, true),
+            style: FilledButton.styleFrom(
+              backgroundColor: Colors.red.shade400,
+              foregroundColor: Colors.white,
+            ),
             child: const Text('Delete'),
           ),
         ],
@@ -124,6 +128,10 @@ class _StudentScreenState extends State<StudentScreen> {
                       onPressed: _addStudent,
                       icon: const Icon(Icons.add),
                       label: const Text('Add Student'),
+                      style: FilledButton.styleFrom(
+                        backgroundColor: Colors.blue.shade400,
+                        foregroundColor: Colors.white,
+                      ),
                     ),
                   ],
                 ),
@@ -174,11 +182,16 @@ class _StudentScreenState extends State<StudentScreen> {
                                 children: [
                                   TextButton(
                                     onPressed: () => _editStudent(student),
+                                    style: TextButton.styleFrom(foregroundColor: Colors.blue.shade600),
                                     child: const Text('Edit'),
                                   ),
-                                  TextButton(
-                                    onPressed: () =>
-                                        _deleteStudent(student),
+                                  const SizedBox(width: 8),
+                                  FilledButton(
+                                    onPressed: () => _deleteStudent(student),
+                                    style: FilledButton.styleFrom(
+                                      backgroundColor: Colors.red.shade400,
+                                      foregroundColor: Colors.white,
+                                    ),
                                     child: const Text('Delete'),
                                   ),
                                 ],
